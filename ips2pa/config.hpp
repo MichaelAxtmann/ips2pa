@@ -182,7 +182,7 @@ struct Config {
     /** 
      * Computes the logarithm of the number of buckets used for input size n and bucket size b.
      */
-    static int logBucketsPartitioner(const std::ptrdiff_t n, const std::ptrdiff_t b) {
+    static int logBucketsPartitioner(const std::ptrdiff_t b) {
         const auto b_log = detail::log2(2 * b - 1);
         if (b_log <= kLogBuckets) {
             return b_log;

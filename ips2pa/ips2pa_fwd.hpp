@@ -115,11 +115,10 @@ class Sorter {
                                                Classifier& classifier);
 
     std::tuple<int, int, diff_t> selectPartitionerSplitters(const iterator s_begin,
-                                                    const iterator s_end,
-                                                    diff_t n,
-                                                    diff_t b,
-                                                    Classifier& classifier,
-                                                    bool use_equal_buckets);
+                                                            const iterator s_end,
+                                                            diff_t b,
+                                                            Classifier& classifier,
+                                                            bool use_equal_buckets);
     
     template <bool kIsParallel>
     bool buildSortingClassifier(const iterator begin, const iterator end,
