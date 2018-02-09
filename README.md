@@ -3,7 +3,7 @@
 This is the implementation of a k-way multilevel partitioner, an extension of the sorting algorithm presented in the [eponymous paper](https://arxiv.org/abs/1705.02257). 
 
 > We present a partitioning algorithm that works in-place, is
-> cache-efficient, avoids branch-mispredictions, and performs work O(k log n) for
+> cache-efficient, avoids branch-mispredictions, and performs work O(n log k) for
 > arbitrary inputs. The main algorithmic contribution is a coarse-grained block-based permutation which makes distribution-based algorithms in-place.
 
 ## Usage
