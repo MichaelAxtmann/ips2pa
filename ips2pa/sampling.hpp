@@ -127,7 +127,6 @@ std::tuple<int, int, typename Cfg::difference_type> Sorter<Cfg>::selectPartition
     Classifier& classifier,
     bool use_equal_buckets) {
 
-    diff_t n = s_end - s_begin;
     using diff_t = typename Cfg::difference_type;
     using value_type = typename Cfg::value_type;
     const int log_buckets = Cfg::logBucketsPartitioner(num_in_splitter + 1);

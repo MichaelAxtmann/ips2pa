@@ -247,9 +247,9 @@ struct ExtendedConfig : public Cfg {
     using Sync = decltype(std::declval<ThreadPool&>().sync());
 #else
     struct Sync {
-        constexpr void barrier() const {}
+        void barrier() const {}
         template <class F>
-        constexpr void single(F&&) const {}
+        void single(F&&) const {}
     };
 #endif
 
