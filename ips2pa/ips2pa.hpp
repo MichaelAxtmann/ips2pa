@@ -97,7 +97,7 @@ namespace parallel {
  * Helper functions for creating a reusable parallel sorter.
  */
 template <class It, class Cfg = Config<>, class ThreadPool, class Comp = std::less<typename std::iterator_traits<It>::value_type>>
-    typename std::enable_if<std::is_class<std::remove_reference<ThreadPool>::type>::value,
+    typename std::enable_if<std::is_class<typename std::remove_reference<ThreadPool>::type>::value,
                ParallelSorter<ExtendedConfig<It, Comp, Cfg, ThreadPool>>>::type
 make_sorter(ThreadPool&& thread_pool, Comp comp = Comp()) {
     return ParallelSorter<ExtendedConfig<It, Comp, Cfg, ThreadPool>>(
