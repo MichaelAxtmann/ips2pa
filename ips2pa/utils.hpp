@@ -38,6 +38,7 @@
 #define IPS2PA_ASSUME_NOT(c) if (c) __builtin_unreachable()
 
 #include <limits>
+#include <random>
 
 #include "ips2pa_fwd.hpp"
 

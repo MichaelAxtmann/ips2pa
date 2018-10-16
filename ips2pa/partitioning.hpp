@@ -170,7 +170,7 @@ int Sorter<Cfg>::partition(const iterator begin, const iterator end,
 
         // Save excess elements at right end of stripe
         const auto in_swap_buffer = !kIsParallel
-                                            ? std::pair<int, diff_t>(my_last_bucket, 0)
+                                            ? std::pair<int, diff_t>(-1, 0)
                                             : saveMargins(my_last_bucket);
         if (kIsParallel) shared_->sync.barrier();
 
