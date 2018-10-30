@@ -122,7 +122,6 @@ std::tuple<int, int, bool> Sorter<Cfg>::selectSplitters(const iterator begin,
 template <class Cfg>
 std::tuple<int, int, typename Cfg::difference_type> Sorter<Cfg>::selectPartitionerSplitters(
     const iterator s_begin,
-    const iterator s_end,
     diff_t num_in_splitter,
     Classifier& classifier,
     bool use_equal_buckets) {

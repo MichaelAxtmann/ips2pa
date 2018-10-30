@@ -85,8 +85,8 @@ bool Sorter<Cfg>::buildSortingClassifier(const iterator begin,
 template <class Cfg>
 template <bool kIsParallel>
 typename Cfg::difference_type Sorter<Cfg>::buildPartitioningClassifier(const iterator s_begin,
-                                                                       const iterator s_end,
-                                                                       diff_t n,
+        const iterator /*s_end*/,
+        diff_t /*n*/,
                                                                        diff_t num_splitter,
                                                                        bool use_equal_buckets,
                                                                        SharedData* const shared) {
@@ -94,7 +94,7 @@ typename Cfg::difference_type Sorter<Cfg>::buildPartitioningClassifier(const ite
     if (!kIsParallel) {
         auto& classifier = local_.classifier;
         int log_buckets = 0;
-        std::tie(num_buckets_, log_buckets, step) = selectPartitionerSplitters(s_begin, s_end, num_splitter, classifier, use_equal_buckets);
+        std::tie(num_buckets_, log_buckets, step) = selectPartitionerSplitters(s_begin, num_splitter, classifier, use_equal_buckets);
         // Build the tree
         classifier.build(log_buckets);
         classifier_ = &classifier;
@@ -102,7 +102,7 @@ typename Cfg::difference_type Sorter<Cfg>::buildPartitioningClassifier(const ite
         shared->sync.single([&] {
                 auto& classifier = shared_->classifier;
                 int log_buckets = 0;
-                std::tie(num_buckets_, log_buckets, step) = selectPartitionerSplitters(s_begin, s_end, num_splitter, classifier, use_equal_buckets);
+                std::tie(num_buckets_, log_buckets, step) = selectPartitionerSplitters(s_begin, num_splitter, classifier, use_equal_buckets);
                 // Build the tree
                 classifier.build(log_buckets);
                 classifier_ = &classifier;

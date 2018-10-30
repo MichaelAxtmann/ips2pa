@@ -114,8 +114,7 @@ class Sorter {
                                                iterator end,
                                                Classifier& classifier);
 
-    std::tuple<int, int, diff_t> selectPartitionerSplitters(iterator s_begin,
-                                                            iterator s_end,
+    std::tuple<int, int, diff_t> selectPartitionerSplitters(const s_begin,
                                                             diff_t b,
                                                             Classifier& classifier,
                                                             bool use_equal_buckets);
