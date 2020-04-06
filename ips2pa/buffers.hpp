@@ -128,8 +128,8 @@ class Sorter<Cfg>::Block {
     }
 
  private:
-    using storage_type = typename std::conditional<kInitializedStorage, value_type,
-                                          std::aligned_storage<sizeof(value_type), alignof(value_type)>>::type;
+    using storage_type = typename std::conditional_t<kInitializedStorage, value_type,
+                                          std::aligned_storage_t<sizeof(value_type), alignof(value_type)>>;
     storage_type storage_[Cfg::kBlockSize];
 };
 
